@@ -22,9 +22,9 @@ use Yii;
  * @property int $evangelismo
  * @property string $observaciones
  *
- * @property MiembroCivil $estadoCivil
+ * @property Miembrocivil $estadoCivil
  * @property Iglesia $iglesia
- * @property MiembroClasificacion $clasificacion
+ * @property Miembroclasificacion $clasificacion
  */
 class Miembro extends \yii\db\ActiveRecord
 {
@@ -49,9 +49,9 @@ class Miembro extends \yii\db\ActiveRecord
             [['nombre', 'direccion'], 'string', 'max' => 500],
             [['telefono', 'cargos_actuales'], 'string', 'max' => 1500],
             [['observaciones'], 'string', 'max' => 100],
-            [['id_estado_civil'], 'exist', 'skipOnError' => true, 'targetClass' => MiembroCivil::className(), 'targetAttribute' => ['id_estado_civil' => 'id']],
+            [['id_estado_civil'], 'exist', 'skipOnError' => true, 'targetClass' => Miembrocivil::className(), 'targetAttribute' => ['id_estado_civil' => 'id']],
             [['id_iglesia'], 'exist', 'skipOnError' => true, 'targetClass' => Iglesia::className(), 'targetAttribute' => ['id_iglesia' => 'id']],
-            [['id_clasificacion'], 'exist', 'skipOnError' => true, 'targetClass' => MiembroClasificacion::className(), 'targetAttribute' => ['id_clasificacion' => 'id']],
+            [['id_clasificacion'], 'exist', 'skipOnError' => true, 'targetClass' => Miembroclasificacion::className(), 'targetAttribute' => ['id_clasificacion' => 'id']],
         ];
     }
 
@@ -81,9 +81,9 @@ class Miembro extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getEstadoCivil()
+    public function getEstadocivil()
     {
-        return $this->hasOne(MiembroCivil::className(), ['id' => 'id_estado_civil']);
+        return $this->hasOne(Miembrocivil::className(), ['id' => 'id_estado_civil']);
     }
 
     /**
@@ -99,7 +99,7 @@ class Miembro extends \yii\db\ActiveRecord
      */
     public function getClasificacion()
     {
-        return $this->hasOne(MiembroClasificacion::className(), ['id' => 'id_clasificacion']);
+        return $this->hasOne(Miembroclasificacion::className(), ['id' => 'id_clasificacion']);
     }
 
     /**
