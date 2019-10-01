@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
+ * Escrito por YII2 Y gustavo Felix chan
  * This is the model class for table "miembro".
  *
  * @property string $id
